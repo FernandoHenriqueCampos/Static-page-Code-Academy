@@ -172,57 +172,157 @@ header {
     }
 }
 
-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+section.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 15px;
+    padding: 20px;
+    width: 90%;
+    margin: 0 5% 0 5%;
+    box-sizing: border-box;
+    overflow-y: hidden; 
+    height: 100%; 
 }
 
-.emphasis-item {
+.card {
+    background-color: #1F2029;
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 35%;
-    height: 50%;
+    min-height: 0; 
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     border-radius: 20px;
-    border: 1px solid var(--span-color);
+}
 
-    img {
-        background-color: white;
-        width: 97%;
-        height: 70%;
-        object-fit: contain;
-        border-radius: 20px;
-        margin-top: 1.5%;
-    }
+.card.long {
+    grid-column: span 2;
+    grid-row: span 2;
+    height: auto;
 
-    .emphasis-info {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 4%;
-        padding-left: 2%;
-        padding-right: 2%;
-        width: 93%;
-        height: 30%;
-
-        h1 {
-            font-size: 1.2rem;
+    .card-info {
+        padding: 0 1% 0 1%;
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 4%;
             font-family: var(--font-formal);
-            margin: 0;
+            font-weight: 100;
+            margin: 4% 0 0 0;
+        }
+        
+        span {
+            color: var(--span-color);
+            font-size: 0.8rem;
+            display: block;
         }
     }
 
-    span {
-        color: var(--span-color);
-        font-size: 0.8rem;
-        font-family: var(--font-formal);
-        align-self: flex-start;
-        padding-left: 4%;
-        transform: translateY(-100%);
+    .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .img-container img {
+        max-width: 98%;
+        max-height: 100%;
+        background-color: white;
+        object-fit: contain;
+        margin: 1% 1% 0 1%;
+    }
+
+    .img-container {
+        height: 79%;
+    }
+}
+
+
+
+.card.wide {
+    grid-column: span 2;
+    flex-direction: row;
+    align-items: center;
+    height: auto;
+    margin: 0;
+    justify-content: flex-start;
+
+    .card-info {
+        padding-left: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 100;
+            margin-top: 4%;
+            font-family: var(--font-formal);
+            margin: 5px 0;
+        }
+        
+        span {
+            color: var(--span-color);
+            font-size: 0.8rem;
+            display: block;
+        }
+    }
+}
+
+.wide .img-container {
+    width: 45%;
+    height: 100%;
+    background-color: white;
+    object-fit: contain;
+    margin: 1% 1% 0 1%;
+    border-radius: 20px;
+
+    .img-container {
+        height: 79%;
+    }
+}
+
+.card.small {
+    grid-column: span 1;
+    grid-row: span 1;
+    height: 140%;
+    margin: 0;
+    justify-content: flex-start;
+
+    .img-container {
+        max-width: 98%;
+        max-height: 60%;
+        background-color: white;
+        object-fit: contain;
+        margin: 1% 1% 0 1%;
+        border-radius: 20px;
+    }
+
+    .card-info {
+        padding-left: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 100;
+            margin-top: 4%;
+            font-family: var(--font-formal);
+            margin: 5px 0;
+            color: white;
+        }
+        
+        span {
+            color: var(--span-color);
+            font-size: 0.8rem;
+            display: block;
+        }
     }
 }
